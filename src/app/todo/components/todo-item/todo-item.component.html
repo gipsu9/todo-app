@@ -1,0 +1,11 @@
+<span [class.done]="item.is_done">{{item.title}}</span>
+<div>
+  <button *ngIf="!item.is_done; else toDoButton"
+          (click)="toggle()">
+    Done
+  </button>
+  <ng-template #toDoButton>
+    <button (click)="toggle()">Todo</button>
+  </ng-template>
+  <button (click)="removeItem(item.id)">Remove</button>
+</div>

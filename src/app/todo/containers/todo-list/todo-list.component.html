@@ -1,0 +1,13 @@
+<input type="text" #taskInput>
+<button (click)="addTask(taskInput.value); taskInput.value=''">Add</button>
+<div class="todo-list">
+  <todo-item *ngFor="let todo of todoList"
+             [item]="todo"
+             (remove)="removeTask($event)"
+              (update)="updateTask($event)">
+  </todo-item>
+</div>
+<button *ngIf="todoList && todoList.length > 0"
+        (click)="clearTasks()">
+  Clear all tasks
+</button>
