@@ -1,10 +1,44 @@
 :host {
   display: flex;
   justify-content: space-between;
+  align-items: center;
   padding: 10px;
-  border: 1px solid gray;
+  border: 0;
+  border-bottom: 1px solid darkgray;
+  font-size: 20px;
+  height: 50px;
+}
+
+.icon {
+  display: inline-block;
+  height: 20px;
+  width: 20px;
+}
+
+.tick-icon {
+  background-image: url("../../../icons/tick.svg");
+}
+
+.cancel-icon {
+  background-image: url("../../../icons/cross-out-mark.svg");
+}
+
+.delete-icon {
+  background-image: url("../../../icons/trash.svg");
 }
 
 .done {
   text-decoration: line-through;
+}
+
+.title {
+  margin: 0;
+}
+
+.remove-section {
+  display: flex;
+}
+
+.confirm-btn {
+  margin-left: 20px;
 }

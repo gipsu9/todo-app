@@ -8,6 +8,8 @@ import {TodoItem} from '../../models/todo.interface';
 })
 export class TodoItemComponent implements OnInit {
 
+  showRemovalSection = false;
+
   @Input() item: TodoItem;
   @Output() remove = new EventEmitter<number>();
   @Output() update = new EventEmitter<TodoItem>();
@@ -19,13 +21,17 @@ export class TodoItemComponent implements OnInit {
     this.remove.emit(id);
   }
 
-  toggle(): void {
+  toggleDone(): void {
     if (this.item.is_done) {
       this.item.is_done = false;
     } else {
       this.item.is_done = true;
     }
     this.update.emit(this.item);
+  }
+
+  toggleRemovalSection(): void {
+    this.showRemovalSection = !this.showRemovalSection;
   }
 
   ngOnInit() {

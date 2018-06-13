@@ -1,4 +1,4 @@
-import {TestBed, inject} from '@angular/core/testing';
+import {TestBed} from '@angular/core/testing';
 
 import {TODOS_API, TodoService} from './todo.service';
 import {HttpClientTestingModule, HttpTestingController} from '@angular/common/http/testing';
@@ -84,6 +84,18 @@ fdescribe('TodoService', () => {
   });
 
   it('should delete todo item', () => {
+    const todo = {
+      id: 1,
+      title: 'title1',
+      is_done: false
+    };
 
+    const result = [];
+    service.deleteTodo(todo).subscribe(item => result.push(item));
+    const req = httpMock.expectOne(`${TODOS_API}/${todo.id}`);
+    req.flush(todo);
+    expect(req.request.method).toBe('DELETE');
+    expect(req.request.url).toBe(`${TODOS_API}/${todo.id}`);
+    expect(result).toEqual([todo]);
   });
 });

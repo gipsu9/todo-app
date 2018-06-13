@@ -1,0 +1,45 @@
+:host {
+  display: block;
+  padding-top: 50px;
+}
+
+h1 {
+  text-transform: uppercase;
+  margin: 0 0 40px 0;
+}
+
+input {
+  border-radius: 3%;
+  width: 300px;
+  border: none;
+  border-bottom: 1px solid darkgray;
+  font-size: 18px;
+  outline: none;
+  padding-top: 10px;
+
+  &::placeholder {
+    color: gray;
+  }
+
+  &:focus {
+    border-bottom: 1px solid dodgerblue;
+  }
+}
+
+.todo-list {
+  display: flex;
+  flex-direction: column;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.add-icon {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  background-image: url('../../../icons/add.svg');
+}
+
+.todo-list-info {
+  font-size: 20px;
+}

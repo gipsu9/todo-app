@@ -1,13 +1,19 @@
-<input type="text" #taskInput>
-<button (click)="addTask(taskInput.value); taskInput.value=''">Add</button>
+<h1>Todo app</h1>
+<input type="text" placeholder="Add task"
+       (keydown)="onKeydown($event)"
+       (input)="onInput()" #taskInput>
+<button (click)="addTask(taskInput.value)">
+ <span class="add-icon"></span>
+</button>
+<p class="todo-list-info" *ngIf="exists">Task already exits</p>
 <div class="todo-list">
   <todo-item *ngFor="let todo of todoList"
              [item]="todo"
              (remove)="removeTask($event)"
               (update)="updateTask($event)">
   </todo-item>
+  <p class="todo-list-info" *ngIf="todoList && todoList.length === 0">
+    There are no scheduled tasks
+  </p>
 </div>
-<button *ngIf="todoList && todoList.length > 0"
-        (click)="clearTasks()">
-  Clear all tasks
-</button>
+
