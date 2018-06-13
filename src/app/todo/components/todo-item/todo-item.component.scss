@@ -1,10 +1,16 @@
 :host {
   display: flex;
   justify-content: space-between;
+  align-items: center;
   padding: 10px;
-  border: 1px solid gray;
+ border: 0;
+  border-bottom: 1px solid darkgray;
 }
 
 .done {
   text-decoration: line-through;
+}
+
+.remove-section {
+  display: flex;
 }
